@@ -1,4 +1,6 @@
 <h1>Contype </h1>
+<code>go get github.com/kampsy/Go/contype</code>
+<hr>
 <p>Contype abstracts away all the boilerplate needed to serve the right media file in an Http server</p>
 <p>Usage</p>
 <pre>
