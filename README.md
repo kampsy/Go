@@ -1,8 +1,18 @@
-<h1>Welcome to My Go Repository</h1>
-<p>This repository contains all golang related </code>code.</code>Thanks for visiting! </p>
-<h3>List of available projects.</h3>
-<ul>
-<li>
-<a href="contype">contype</a>
-</li>
-</ul>
+<h1>Contype </h1>
+<p>Contype abstracts away all the boilerplate needed to serve the right media file in an Http server</p>
+<p>Usage</p>
+<pre>
+  func home(w http.ResponseWriter, r *http.Request)  {
+    path := r.URL.Path[1:]
+    log.Printf("%s %s\n", r.Method, path)
+
+    data, err := ioutil.ReadFile(path)
+    if err != nil {
+      log.Printf("err : %v\n", err)
+    }
+    <b>cont := contype.FileType(r.URL.Path)</b>
+    w.Header().Set("Content-Type", cont)
+    w.Header().Set("Server", "kampsy")
+    w.Write(data)
+  }
+</pre>
